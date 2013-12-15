@@ -17,13 +17,13 @@ class Uniforme {
     private $uniformes = array();
     private $va;
     
-    function __construct($a, $b, $va) {
+    public function __construct($a, $b, $va) {
         $this->a = $a;
         $this->b = $b;
         $this->va = $va;
     }
     
-    function generarUniforme($n){
+    public function generarUniforme($n){
         $diff = $this->b-$this->a;
         for($i = 0; $i  < $n; $i++){
             $this->uniformes[$i] = $this->a + ($diff*$this->va->nextUniforme());
