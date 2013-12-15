@@ -8,7 +8,7 @@
  * Input: The seed
  * Output: the random val
  */
-class LCG {
+class UniformC {
 
     public function go($seed) {
         $a = 16807;  // Multiplier

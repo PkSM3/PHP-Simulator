@@ -14,12 +14,12 @@ class Bernoulli {
 
     public function go($seed,$p) {
         $bern_out = 0;
-        include_once("LCG.php");
-        $lcg = new LCG();
+        include_once("UniformC.php");
+        $unif = new UniformC();
         
-        $thelcg = $lcg->go($seed);
+        $uniform01 = $unif->go($seed);
         
-        if($thelcg <= $p) echo 1;
+        if($uniform01 <= $p) echo 1;
         else return 0;
     }
 

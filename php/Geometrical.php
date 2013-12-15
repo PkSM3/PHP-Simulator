@@ -11,10 +11,10 @@ class Geometrical {
        
     public function go($seed,$p){
         
-        include_once("LCG.php");
-        $uniform = new LCG();
+        include_once("UniformC.php");
+        $uniform01 = new UniformC();
         
-        return ceil(log($uniform->go($seed)) / log(1.0 - $p));
+        return ceil(log($uniform01->go($seed)) / log(1.0 - $p));
     }
 }
 
