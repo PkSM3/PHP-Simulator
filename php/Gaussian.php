@@ -19,8 +19,8 @@ class Gaussian {
         include_once("LCG.php");
         $lcg = new LCG();
         
-        $u1 = $lcg->go($seed);
-        $u2 = $lcg->go($u1*$seed);
+        $u1 = $lcg->go($seed);  //Uniform 1
+        $u2 = $lcg->go($u1*$seed);  //Uniform 2
         
         $r = sqrt( -2.0*log($u1) );
         $theta = 2.0*pi()*$u2;

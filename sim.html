@@ -3,7 +3,7 @@
 
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title>Bootswatch: Simplex</title>
+    <title>Proyecto Simulación - Fase 1</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/bootstrap.css" media="screen">
@@ -25,7 +25,7 @@
       <div class="container">
 
         <div class="navbar-header">
-          <a href="#" class="navbar-brand">ComexJS</a>
+          <a href="#" class="navbar-brand">DISTRIBUCIONES</a>
           <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -36,123 +36,79 @@
         <div class="navbar-collapse collapse" id="navbar-main">
           <ul class="nav navbar-nav">
 
-            <li class="disabled">
-		<a>SELECT</a>
-            </li>
-
             <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">Keywords <span class="caret"></span></a>
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">CONTINUAS <span class="caret"></span></a>
               <ul class="dropdown-menu">
-		<li><a tabindex="-1">Keywords</a></li>
+                                <li> <a href="#">Normal</a> </li>  
+                                <li> <a href="#">Uniforme</a> </li>   
+                                <li> <a href="#">Normal</a> </li>     
+                                <li> <a href="#">Log-Normal</a> </li>    
+                                <li> <a href="#">Gamma</a> </li>     
+                                <li> <a href="#">Beta</a> </li>       
               </ul>
             </li>
 
             <li class="disabled">
-		<a>AND</a>
+		<a>O</a>
             </li>
 
             <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">Scholars <span class="caret"></span></a>
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">DISCRETAS <span class="caret"></span></a>
               <ul class="dropdown-menu">
-		<li><a tabindex="-1">Scholars</a></li>
+                                <li> <a href="#">Uniforme</a> </li>  
+                                <li> <a href="#">Bernoulli</a> </li>   
+                                <li> <a href="#">Binomial</a> </li>     
+                                <li> <a href="#">Geométrica</a> </li>    
+                                <li> <a href="#">Poisson</a> </li>   
               </ul>
             </li>
-
-            <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">refine <span class="caret"></span></a>
-		<ul class="dropdown-menu">
-                                <li>
-                                    <a id="addfiltercountry" href="#">Filter by country</a>
-                                </li>                               
-                                <!--<li>
-                                                            <a id="addcolor" href="#">Color by</a>
-                                </li>-->
-                                <li>
-                                    <a id="addfilterkeyword" href="#">Filter by keyword</a>
-                                </li>
-                                <li>
-                                    <a id="addfiltertag" href="#">Filter by community tags</a>
-                                </li>
-                                <li>
-                                    <a id="addfilterorganization" href="#">Filter by organization</a>
-                                </li>
-                                <li>
-                                    <a id="addfilterlaboratory" href="#">Filter by laboratory</a>
-                                </li>
-		</ul>
-            </li>
-
-            <li>
-              <a href="#">CREATE DIRECTORY</a>
-            </li>
-
-            <li class="disabled">
-              <a>OR</a>
-            </li>
-
-            <li>
-              <a href="#">MAP</a>
-            </li>
-
-          </ul>
-
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="http://cnrs.fr" target="_blank">CNRS</a></li>
-            <li><a href="https://iscpif.fr" target="_blank">ISC-PIF</a></li>
-          </ul>
 
         </div><!--navbar-main-->
       </div><!--container-->
     </div><!--navbar-fixed-top-->
 
-    <div class="navbar navbar-default">
 
-        <div class="navbar-collapse collapse navbar-responsive-collapse">
-                  <ul class="nav navbar-nav">
-                    <li><a><button id="socio" type="button" class="btn btn-primary btn-sm">Scholars</button></a></li>
-                    <li><a><button id="sociosemantic" type="button" class="btn btn-success btn-sm">Mixed</button></a></li>
-                    <li><a><button id="semantic" type="button" class="btn btn-info btn-sm">Keywords</button></a></li>
-                  </ul>
-		  <ul class="nav navbar-nav navbar-right">
-			<li><a>
-		              <input id="searchinput"  autocomplete="off" class="form-control col-lg-8" placeholder="Search" type="text">
-			</a></li>
-		  </ul>
-                  <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">Link</a></li>
-                    <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-                      <ul class="dropdown-menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">Separated link</a></li>
-                      </ul>
-                    </li>
-                  </ul>
-        </div><!-- /.nav-collapse -->
-    </div><!-- /.navbar -->
+    <div class="container">
 
+      <div class="page-header" id="banner">
+        <div class="row">
+          <div class="col-lg-6">
+            <p class="lead"></p>
+          </div>
+        </div>
+      </div>
+     
 
         <div class="row">
 
-          <div class="col-lg-3">
-		<div class="navbar navbar-default">
-		</div>
-          </div><!--col-lg-3-->
 
-          <div class="col-lg-8">
+          <div class="col-lg-12">
 		<div class="navbar navbar-default">
+                    <div style="padding:30px;">
+                        <form class="form-horizontal">
+                            <div class="control-group">
+                                <span class="control-label"></span>
+                                <div class="controls form-inline">
+                                    <label for="iteraciones">Iteraciones</label>
+                                    <input type="number" class="input-small" placeholder="nº Iteraciones" id="iteraciones">
+                                    <label for="media">Media</label>
+                                    <input type="number" class="input-small" placeholder="media" id="media">
+                                    <label for="sdv">Desviacion Standard</label>
+                                    <input type="number" class="input-small" placeholder="desviación standard" id="sdv">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
 		</div>
 	  </div>
         </div><!--row-->
 
-
+    </div>
 
 
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.js"></script>
     <script src="bootswatch/js/bootswatch.js"></script>
+    <script src="main.js"></script>
   
 </body></html>
