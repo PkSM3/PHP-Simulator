@@ -15,10 +15,10 @@ class VariablesAleatoriasUniforme{
         $this->x = $semilla;
     }
 
-    function generarUniforme($n){
+    public function generarUniforme($n){
         $uniforme = array();
         $x = 0.0;
-        $uniforme[0] = $this->semilla;
+        $x = $this->semilla;
         for($i = 1; $i < $n ; $i++){
             $x = (($x*$this->a)+$this->b)%$this->m;
             $uniforme[$i] = $x/$this->m;
@@ -26,8 +26,9 @@ class VariablesAleatoriasUniforme{
         return $uniforme;
     }
 
-    function nextUniforme(){
-        $this->x = (($this->x*$this->a)+$this->b)%$this->m;
+    public function nextUniforme(){
+        $x = (($this->x*$this->a)+$this->b)%$this->m;
+        $this->x = $x;
         $this->u = $this->x/$this->m;
         return $this->u;
     }

@@ -1,8 +1,11 @@
 <?php
 
-#$s=10;
-#$exp = new Exp();
-#echo $exp->go($s);
+$s=1;
+$mean=200;
+$exp = new Exp();
+echo '<pre>';
+print_r( $exp->iter($s, $mean, 100));
+echo ' </pre>';
 
 /*
  * Input: The mean
@@ -18,15 +21,27 @@ class Exp {
         $exp_value = 0; // Computed exponential value to be returned
         $x = $mean;
 
-        do {
+        //~ do {
             include_once("UniformC.php");
             $unif01 = new UniformC();
             $z = $unif01->go($seed);
-        } while (($z == 0) or ($z == 1));
+        //~ } while (($z == 0) or ($z == 1));
 
-        $exp_value = -$x * log($z);
+        $exp_value = -1*$x * log($z);
         return ($exp_value);
     }
+
+    public function iter($n, $seed,$mean){
+		$arr=array();
+		$a = $this->go($seed,$p);
+		$arr[0] = $a;
+		for($i = 1; $i < $n ; $i++){
+			$aaa = $this->go($seed*rand(300,400),$mean);
+			echo $aaa;
+			$arr[$i] = $aaa;
+		}
+		return $arr;
+	}
 
 }
 ?>

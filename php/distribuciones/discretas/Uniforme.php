@@ -18,9 +18,8 @@ class Uniforme {
     }
     
     function generarUniforme($n){
-        $i = 0;
-        while($i < $n){
-            $this->uniformes[++$i] = $this->m + (($this->n-$this->m+1)*$this->va->nextUniforme());
+        for($i = 0; $i < $n; $i++){
+            $this->uniformes[$i] = $this->m + (($this->n-$this->m+1)*$this->va->nextUniforme());
         }
         return $this->uniformes;
     }

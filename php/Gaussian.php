@@ -15,17 +15,17 @@
 class Gaussian {
 
     public function go($seed,$mean,$sdv) {
-        
+
         include_once("UniformC.php");
         $unif01 = new UniformC();
-        
+
         $u1 = $unif01->go($seed);  //Uniform 1
         $u2 = $unif01->go($u1*$seed);  //Uniform 2
-        
+
         $r = sqrt( -2.0*log($u1) );
         $theta = 2.0*pi()*$u2;
         return $mean + $sdv * $r * sin($theta);
     }
-    
+
 }
 ?>

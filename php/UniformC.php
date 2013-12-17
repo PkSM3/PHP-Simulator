@@ -1,8 +1,8 @@
 <?php
 
-//$s=22;
-//$lcg = new LCG();
-//echo $lcg->go($s);
+//~ $s=rand();
+//~ $lcg = new UniformC();
+//~ echo $lcg->go($s);
 
 /*
  * Input: The seed
@@ -19,13 +19,12 @@ class UniformC {
         $x_div_q = 0; // x divided by q
         $x_mod_q = 0; // x mod q
         $x_new = 0;           // New x value
-
         if ($seed > 0)
             $x = $seed;
         // RNG using integer arithmetic
         $x_div_q = $x / $q;
 
-        //x_n = 7^5*x_(n-1)mod(2^31 - 1)    
+        //x_n = 7^5*x_(n-1)mod(2^31 - 1)
         $x_mod_q = $x % $q;
         $x_new = ($a * $x_mod_q) - ($r * $x_div_q);
 

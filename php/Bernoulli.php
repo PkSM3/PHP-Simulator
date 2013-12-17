@@ -16,9 +16,9 @@ class Bernoulli {
         $bern_out = 0;
         include_once("UniformC.php");
         $unif = new UniformC();
-        
+
         $uniform01 = $unif->go($seed);
-        
+
         if($uniform01 <= $p) echo 1;
         else return 0;
     }
