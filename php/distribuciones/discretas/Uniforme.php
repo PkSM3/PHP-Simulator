@@ -17,7 +17,7 @@ class Uniforme {
         $this->va = $va;
     }
 
-    function generarUniforme($n){
+    function generar($n){
         for($i = 0; $i < $n; $i++){
             $this->uniformes[$i] = $this->m + (($this->n-$this->m+1)*$this->va->nextUniforme());
         }

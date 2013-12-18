@@ -21,10 +21,9 @@ class Bernoulli {
         $this->va = $va;
     }
 
-    function generarBernoulli($n){
-        $distribucionUniforme = $this->va->generarUniforme($n);
+    function generar($n){
         for($i = 0; $i < $n; $i++){
-            $this->bernoulli[$i] = (bool)($distribucionUniforme[$i] <= $this->p);
+            $this->bernoulli[$i] = (bool)($this->va->nextUniforme() <= $this->p);
         }
         return $this->bernoulli;
     }

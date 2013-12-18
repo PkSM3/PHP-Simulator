@@ -21,9 +21,8 @@ class Geometrica {
         $this->va = $va;
     }
 
-    function generarGeometrica($n){
+    function generar($n){
         $restaP = 1- $this->p;
-        $distribucionUniforme = $this->va->generarUniforme($n);
         for($i = 0; $i < $n; $i++){
             $this->geometrica[$i] = log($this->va->nextUniforme())/log($restaP);
         }
