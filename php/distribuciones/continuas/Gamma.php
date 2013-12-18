@@ -17,14 +17,14 @@ class Gamma {
     private $gamma = array();
     private $va;
 
-    public function __construct($lambda, $b, $va) {
+    public function __construct($lambda, $b, VariablesAleatoriasUniforme $va) {
         $this->lambda = $lambda;
         $this->b = $b;
         $this->va = $va;
     }
 
     public function generar($n){
-        $vaUniforme = $this->va->generarUniforme($this->b);
+        $vaUniforme = $this->va->generar($this->b);
         $mult = 1.0;
         for($i = 0; $i < $this->b; $i++)
             $mult *= $vaUniforme[$i];

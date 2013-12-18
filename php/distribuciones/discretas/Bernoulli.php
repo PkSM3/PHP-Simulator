@@ -15,12 +15,12 @@ class Bernoulli {
     private $p;
     private $bernoulli = array();
     private $va;
-    
-    function __construct($p, $va) {
+
+    function __construct($p, VariablesAleatoriasUniforme $va) {
         $this->p = $p;
         $this->va = $va;
     }
-    
+
     function generarBernoulli($n){
         $distribucionUniforme = $this->va->generarUniforme($n);
         for($i = 0; $i < $n; $i++){

@@ -17,7 +17,7 @@ class Uniforme {
     private $uniformes = array();
     private $va;
 
-    public function __construct($a, $b, $va) {
+    public function __construct($a, $b, VariablesAleatoriasUniforme $va) {
         $this->a = $a;
         $this->b = $b;
         $this->va = $va;

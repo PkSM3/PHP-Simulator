@@ -33,35 +33,35 @@ $i = 1;
 
 switch($tipo_distribucion){
 	case 'normal':
-		include_once('./distribuciones/continuas/Normal.php');
+		include_once('distribuciones/continuas/Normal.php');
 		$object = new Normal($mu, $teta, $va);
 	break;
 	case 'log-normal':
-		include_once('./distribuciones/continuas/LogNormal.php');
+		include_once('distribuciones/continuas/LogNormal.php');
 		$object = new LogNormal($mu, $teta, $va);
 	break;
 	case 'uniforme continuia':
-		include_once('./distribuciones/continuas/Uniforme.php');
+		include_once('distribuciones/continuas/Uniforme.php');
 		$object = new Uniforme($a, $b, $va);
 	break;
 	case 'uniforme discreta':
-		include_once('./distribuciones/discretas/Uniforme.php');
+		include_once('distribuciones/discretas/Uniforme.php');
 		$object = new Uniforme($a, $b, $va);
 	break;
 	case 'beta':
-		include_once('./distribuciones/continuas/Beta.php');
+		include_once('distribuciones/continuas/Beta.php');
 		$object = new Beta($a, $b, $va);
 	break;
 	case 'gamma':
-		include_once('./distribuciones/continuas/Gamma.php');
+		include_once('distribuciones/continuas/Gamma.php');
 		$object = new Gamma($lambda, $b, $va);
 	break;
 	case 'bernoulli':
-		include_once('./distribuciones/discretas/Bernoulli.php');
+		include_once('distribuciones/discretas/Bernoulli.php');
 		$object = new Bernoulli($p, $va);
 	break;
 	case 'geométrica':
-		include_once('./distribuciones/discretas/Geometrica.php');
+		include_once('distribuciones/discretas/Geometrica.php');
 		$object = new Geometrica($p, $va);
 	break;
 	//~ case 'binomial':

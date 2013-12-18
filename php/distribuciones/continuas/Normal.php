@@ -17,7 +17,7 @@ class Normal {
     private $normal = array();
     private $va;
 
-    public function __construct($mu, $teta, $va) {
+    public function __construct($mu, $teta, VariablesAleatoriasUniforme $va) {
         $this->mu = $mu;
         $this->teta = $teta;
         $this->va = $va;
@@ -25,8 +25,8 @@ class Normal {
 
     public function generar($n){
         $pi = 2*M_PI;
-        for($i = 0 ; $i < n; $i++){
-            $this->normal[i] = $this->mu + $this->teta *(sin($pi*$this->va->nextUniforme())*sqrt(-2*log($this->va->nextUniforme())) );
+        for($i = 0 ; $i < $n; $i++){
+            $this->normal[$i] = $this->mu + $this->teta *(sin($pi*$this->va->nextUniforme())*sqrt(-2*log($this->va->nextUniforme())) );
         }
         return $this->normal;
     }

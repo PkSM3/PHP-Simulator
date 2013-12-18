@@ -7,6 +7,9 @@ function distribucion(element){
 			removeB();
 			removeLambda();
 			removeP();
+
+			showMu();
+			showTeta();
 		break;
 		case 'uniforme continuia':
 		case 'uniforme discreta':
@@ -15,12 +18,18 @@ function distribucion(element){
 			removeP();
 			removeTeta();
 			removeMu();
+
+			showA();
+			showB();
 		break;
 		case 'gamma':
 			removeA();
 			removeP();
 			removeTeta();
 			removeMu();
+
+			showLambda();
+			showB();
 		break;
 		case 'bernoulli':
 		case 'geométrica':
@@ -29,6 +38,8 @@ function distribucion(element){
 			removeLambda();
 			removeTeta();
 			removeMu();
+
+			showP();
 		break;
 		case 'binomial':
 			alert('en construccion');
@@ -40,6 +51,8 @@ function distribucion(element){
 			removeP();
 			removeTeta();
 			removeMu();
+
+			showLambda();
 		break;
 	}
 	$('#distribucion').text('Distribución: '+distriucion);
@@ -49,34 +62,66 @@ function distribucion(element){
 	return false;
 }
 
+function showA(){
+	$("#a_label").show();
+	$("#a").show();
+}
+
+function showB(){
+	$("#b_label").show();
+	$("#b").show();
+}
+
+function showLambda(){
+	$("#lambda_label").show();
+	$("#lambda").show();
+}
+
+function showMu(){
+	$("#mu_label").show();
+	$("#mu").show();
+}
+
+function showP(){
+	$("#p_label").show();
+	$("#p").show();
+}
+
+function showTeta(){
+	$("#teta_label").show();
+	$("#teta").show();
+}
+
+
+
 function removeA(){
-	$("#a_label").remove();
-	$("#a").remove();
+	$("#a_label").hide();
+	$("#a").hide();
 }
 
 function removeB(){
-	$("#b_label").remove();
-	$("#b").remove();
+	$("#b_label").hide();
+	$("#b").hide();
 }
 
 function removeLambda(){
-	$("#lambda_label").remove();
-	$("#lambda").remove();
+	$("#lambda_label").hide();
+	$("#lambda").hide();
 }
 
 function removeMu(){
-	$("#mu_label").remove();
-	$("#mu").remove();
+	$("#mu_label").hide();
+	$("#mu").hide();
 }
 
 function removeP(){
-	$("#p_label").remove();
-	$("#p").remove();
+	$("#p_label").hide();
+	$("#p").hide();
 }
 
 function removeTeta(){
-	$("#teta_label").remove();
-	$("#teta").remove();
+	$("#teta_label").hide();
+	$("#teta").hide();
 }
 
 function ejecutarSimulador(){

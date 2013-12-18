@@ -4,6 +4,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
+include_once('Normal.php');
 class LogNormal {
     //put your code here
     private $mu;
@@ -12,7 +13,7 @@ class LogNormal {
     private $va;
     private $normal;
 
-    public function __construct($mu, $teta, $va) {
+    public function __construct($mu, $teta, VariablesAleatoriasUniforme $va) {
         $this->mu = $mu;
         $this->teta= $teta;
         $this->va = $va;
@@ -20,7 +21,7 @@ class LogNormal {
     }
 
     public function generar($n){
-        $distribucionNormal = $this->normal->generarNormal(n);
+        $distribucionNormal = $this->normal->generar($n);
         for( $i = 0; $i  < $n ; $i++){
             $this->logNormal[$i] = exp($this->mu+($this->teta*$distribucionNormal[$i]));
         }

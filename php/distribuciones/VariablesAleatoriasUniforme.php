@@ -15,7 +15,7 @@ class VariablesAleatoriasUniforme{
         $this->x = $this->semilla;
     }
 
-    public function generarUniforme($n){
+    public function generar($n){
         $uniforme = array();
         $x = 0.0;
         $x = $this->semilla;

@@ -15,12 +15,12 @@ class Geometrica {
     private $p;
     private $geometrica = array();
     private $va;
-    
-    function __construct($p, $va) {
+
+    function __construct($p, VariablesAleatoriasUniforme $va) {
         $this->p = $p;
         $this->va = $va;
     }
-    
+
     function generarGeometrica($n){
         $restaP = 1- $this->p;
         $distribucionUniforme = $this->va->generarUniforme($n);
