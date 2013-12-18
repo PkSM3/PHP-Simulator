@@ -16,14 +16,14 @@ class Beta {
     private $b;
     private $beta = array();
     private $va;
-    
+
     public function __construct($a, $b, $va) {
         $this->a = $a;
         $this->b = $b;
         $this->va = $va;
     }
-    
-    public function generarBeta($n){
+
+    public function generar($n){
         $gamma = new Gamma(1.0, $this->a, $this->va);
         $distribucionGamma1 = $gamma->generarGamma($n);
         $gamma->setB($this->b);

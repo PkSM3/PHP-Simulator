@@ -2,8 +2,9 @@
 
 
 $lmb=rand();
+$s=rand();
 $poiss = new Poisson();
-echo $poiss->go(rand(),$lmb);
+echo $poiss->go($s,$lmb);
 
 
 /*

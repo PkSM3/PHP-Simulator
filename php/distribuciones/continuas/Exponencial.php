@@ -16,15 +16,14 @@ class Exponencial {
     private $exponencial = array();
     private $va;
 
-    public function __construct($lambda, $va) {
+    public function __construct($lambda, VariablesAleatoriasUniforme $va) {
         $this->lambda = $lambda;
         $this->va = $va;
     }
 
-    public function generarExponenecial($n){
-		$array = $this->va->generarUniforme($n);
+    public function generar($n){
         for($i = 0; $i < $n; $i++){
-            $this->exponencial[$i] = -1*  $this->lambda*(log($array[$i]));
+            $this->exponencial[$i] = -1*  $this->lambda*(log($this->va->nextUniforme()));
         }
         return $this->exponencial;
     }

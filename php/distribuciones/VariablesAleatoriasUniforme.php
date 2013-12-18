@@ -12,7 +12,7 @@ class VariablesAleatoriasUniforme{
         $this->b = $b;
         $this->m = $m;
         $this->semilla =($semilla != null)?$semilla:  rand(1, 10000);
-        $this->x = $semilla;
+        $this->x = $this->semilla;
     }
 
     public function generarUniforme($n){
@@ -32,5 +32,9 @@ class VariablesAleatoriasUniforme{
         $this->u = $this->x/$this->m;
         return $this->u;
     }
+
+    public function getSemilla(){
+		return $this->semilla;
+	}
 }
 ?>

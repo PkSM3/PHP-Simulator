@@ -1,11 +1,15 @@
 <?php
 
-$s=1;
-$mean=200;
-$exp = new Exp();
-echo '<pre>';
-print_r( $exp->iter($s, $mean, 100));
-echo ' </pre>';
+//~ $_GET["n"];
+//~ $_GET["s"];
+//~ $_GET["me"];
+
+//~ $s=1;
+//~ $mean=200;
+//~ $exp = new Exp();
+//~ echo '<pre>';
+//~ print_r( $exp->iter($s, $mean, 100));
+//~ echo ' </pre>';
 
 /*
  * Input: The mean

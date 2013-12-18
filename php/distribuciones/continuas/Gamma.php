@@ -16,14 +16,14 @@ class Gamma {
     private $b;
     private $gamma = array();
     private $va;
-    
+
     public function __construct($lambda, $b, $va) {
         $this->lambda = $lambda;
         $this->b = $b;
         $this->va = $va;
     }
-    
-    public function generarGamma($n){
+
+    public function generar($n){
         $vaUniforme = $this->va->generarUniforme($this->b);
         $mult = 1.0;
         for($i = 0; $i < $this->b; $i++)
@@ -33,7 +33,7 @@ class Gamma {
         }
         return $this->gamma;
     }
-    
+
     public function setB($b){
         $this->b = $b;
     }
