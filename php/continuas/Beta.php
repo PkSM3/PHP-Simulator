@@ -29,10 +29,7 @@ class Beta {
         $gamma = new Gamma($this->a, $this->va);
         $distribucionGamma1 = $gamma->generar($n);
         
-        $s=$this->va->getSemilla();        
-        $s=abs($s/$distribucionGamma1[0]);        
-        $this->va->setSemilla($s);
-        $gamma = new Gamma($this->b, $this->va);        
+        $gamma = new Gamma($this->b, $this->va);
         $distribucionGamma2 = $gamma->generar($n);
         
         $beta=array();

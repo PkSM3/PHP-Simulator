@@ -19,9 +19,9 @@ $va = new VariablesAleatoriasUniforme($semilla);
 //$exps = new Exponencial(10, $va);
 //$array = $exps->generar($n);
 
-include_once('./continuas/Gamma.php');
-$gammas = new Gamma(10, $va);
-$array = $gammas->generar($n);
+//include_once('./continuas/Gamma.php');
+//$gammas = new Gamma(10, $va);
+//$array = $gammas->generar($n);
 
 //include_once('./continuas/Normal.php');
 //$mean=0;
@@ -36,8 +36,8 @@ $array = $gammas->generar($n);
 //$array = $lg->generar($n);
 
 //include_once('./continuas/Beta.php');
-//$a=20.0;
-//$b=10.0;
+//$a=4.0;
+//$b=3.0;
 //$b = new Beta($a,$b, $va);
 //$array = $b->generar($n);
 
@@ -53,15 +53,15 @@ $array = $gammas->generar($n);
 //$array = $geo->generar($n);
 
 //include_once('./discretas/Poisson.php');
-//$l=28;
+//$l=31;
 //$poi = new Poisson($l, $va);
 //$array = $poi->generar($n);
 
-#include_once('./discretas/Uniforme.php');
-#$a=5;
-#$b=6;
-#$ud = new Uniforme($a,$b, $va);
-#$array = $ud->generar($n);
+//include_once('./discretas/Uniforme.php');
+//$a=5;
+//$b=6;
+//$ud = new Uniforme($a,$b, $va);
+//$array = $ud->generar($n);
 
 
 //include_once('./continuas/Uniforme.php');

@@ -22,9 +22,8 @@ class Binomial {
     }
 
     function generar($n){
-        $unif=$this->unif01->generar($n);
         for($i = 0; $i < $n; $i++){
-            $this->binomial[$i] = ($unif[$i] <= $this->p)?1:0;
+            $this->binomial[$i] = ($this->unif01->nextUniforme() <= $this->p)?1:0;
         }
         return $this->binomial;
     }

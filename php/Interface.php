@@ -4,26 +4,16 @@ ini_set('display_errors', 'On');
 error_reporting(E_ALL | E_STRICT);
 header('Content-type: application/json');
 require_once './VariablesAleatoriasUniforme2.php';
-//Seteo los valores del get (unit testing)
+//Esto permite tanto post como get.
 $tipo_distribucion 	= isset($_REQUEST['tipo_distribucion'])?$_REQUEST['tipo_distribucion']:null;
 $iteraciones 		= isset($_REQUEST['iteraciones'])?$_REQUEST['iteraciones']:null;
-$semilla 			= isset($_REQUEST['semilla'])?$_REQUEST['semilla']:rand(10e6 , 10e10);
+$semilla 			= isset($_REQUEST['semilla'])?$_REQUEST['semilla']:rand();
 $a 					= isset($_REQUEST['a'])?$_REQUEST['a']:null;
 $b 					= isset($_REQUEST['b'])?$_REQUEST['b']:null;
 $p 					= isset($_REQUEST['p'])?$_REQUEST['p']:null;
 $teta 				= isset($_REQUEST['teta'])?$_REQUEST['teta']:null;
 $mu 				= isset($_REQUEST['mu'])?$_REQUEST['mu']:null;
 $lambda 			= isset($_REQUEST['lambda'])?$_REQUEST['lambda']:null;
-//Seteo los valores del post
-//$tipo_distribucion 	= isset($_POST['tipo_distribucion'])?$_POST['tipo_distribucion']:null;
-//$iteraciones 		= isset($_POST['iteraciones'])?$_POST['iteraciones']:null;
-//$semilla 			= isset($_POST['semilla'])?$_POST['semilla']:rand(10e6 , 10e10);
-//$a 					= isset($_POST['a'])?$_POST['a']:null;
-//$b 					= isset($_POST['b'])?$_POST['b']:null;
-//$p 					= isset($_POST['p'])?$_POST['p']:null;
-//$teta 				= isset($_POST['teta'])?$_POST['teta']:null;
-//$mu 				= isset($_POST['mu'])?$_POST['mu']:null;
-//$lambda 			= isset($_POST['lambda'])?$_POST['lambda']:null;
 
 //~ echo $iteraciones;
 //~ echo $semilla;
@@ -101,12 +91,16 @@ array_push($finalarray,$info);
 
 foreach($array as $key => $value){
     $info=array();
-    array_push($info,$key);
+    array_push($info,"s".$key);
     array_push($info,$value);
     array_push($finalarray,$info);
 }
 
-echo json_encode($finalarray);
+if(isset($_GET['callback'])){ // Si es una petición cross-domain
+   echo $_GET['callback'].'('.json_encode($finalarray).')';
+}
+else echo json_encode($finalarray);
+
 
 
 ?>

@@ -23,53 +23,53 @@ class Poisson {
     public function generar($n) {
         //http://www.johndcook.com/csharp_poisson.html
         $lambda = $this->lambda;  
-        $unif=$this->unif01->generar($n);
         $poisson=array();
+        $unif=$this->unif01->nextUniforme();
         if ($lambda < 30.0) {
             for($i = 0; $i < $n; $i++){
-                $poisson[$i]=$this->PoissonSmall($unif[$i]);
+                $poisson[$i]=$this->PoissonSmall();
             }
         } else {
             for($i = 0; $i < $n; $i++){
-                $poisson[$i]=$this->PoissonLarge($unif[$i]);
+                $poisson[$i]=$this->PoissonLarge();
             }
         }
         return $poisson;
     }
         
-    private function PoissonSmall($u){
-        // Algorithm : Donald Knuth, 1969.
+    private function PoissonSmall(){
+        // Algorithm : Donald Knuth, 1969.        
         $lambda=$this->lambda;
         $p = 1.0;
         $L = exp(-1*$lambda);
         $k = 0;
         do {
             $k++;
+            $u=$this->unif01->nextUniforme();
             $p = $p*$u;
         } while ($p > $L);
         
         return $k - 1;
     }
     
-    private function PoissonLarge($u){
+    private function PoissonLarge(){
+        //  Rejection method PA
         $lambda=$this->lambda;
         $c = 0.767 - 3.36/$lambda;
         $beta = pi()/sqrt(3.0*$lambda);
         $alpha = $beta*$lambda;
         $k = log($c) - $lambda - log($beta);
-        $s2=$s1/pi();
         for(;;) {
+            $u=$this->unif01->nextUniforme();
             $x = ($alpha - log((1.0 - $u)/$u))/$beta;
             $n = ceil($x + 0.5);
             if ($n < 0)
                 continue;
-            $vt=$this->unif01->nextUniforme($s2);
-            $v = $vt[0];
+            $v = $this->unif01->nextUniforme();
             $y = $alpha - $beta*$x;
             $temp = 1.0 + exp($y);
             $lhs = $y + log($v/($temp*$temp));
             $rhs = $k + $n*log($lambda) - $this->LogFactorial($n);
-            $s2=$s2*pi();
             
             if ($lhs <= $rhs)
                 return $n;
