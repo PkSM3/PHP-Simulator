@@ -21,9 +21,9 @@ class LogNormal {
     }
 
     public function generar($n){
-        $distribucionNormal = $this->normal->generar($n);
+        $normal = $this->normal->generar($n);
         for( $i = 0; $i  < $n ; $i++){
-            $this->logNormal[$i] = exp($this->mu+($this->teta*$distribucionNormal[$i]));
+            $this->logNormal[$i] = exp($this->mu+($this->teta*$normal[$i]));
         }
         return $this->logNormal;
     }

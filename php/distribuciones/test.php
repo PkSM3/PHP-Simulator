@@ -24,11 +24,17 @@ $va = new VariablesAleatoriasUniforme($semilla);
 //$array = $gammas->generar($n);
 
 
-include_once('./continuas/Normal.php');
+//include_once('./continuas/Normal.php');
+//$mean=10;
+//$sdv=4;
+//$norms = new Normal($mean,$sdv, $va);
+//$array = $norms->generar($n);
+
+include_once('./continuas/LogNormal.php');
 $mean=10;
 $sdv=4;
-$norms = new Normal($mean,$sdv, $va);
-$array = $norms->generar($n);
+$lg = new LogNormal($mean,$sdv, $va);
+$array = $lg->generar($n);
 
 echo '<pre>';
 print_r($array);
