@@ -16,6 +16,14 @@
     <![endif]-->
     <script src="bootswatch/js/bsa_002.js" async="" type="text/javascript"></script>
     <script src="bootswatch/js/bsa.js"></script>
+    <script src="js/jquery.js"></script>
+    <script type="text/javascript" src = "http://www.google.com/jsapi" charset="utf-8"></script>
+    <script type="text/javascript">
+        google.load("visualization", "1", {packages:["corechart"]});
+    </script>
+    <script src="js/bootstrap.js"></script>
+    <script src="bootswatch/js/bootswatch.js"></script>
+    <script src="main.js"></script>
 </head>
 
 <body>
@@ -109,16 +117,12 @@
 			</div>
 			<!--row-->
 
-			<!--DIV EN EL CUAL SE DESPLIEGAN LOS RESULTADOS-->
-			<div class="row" style="display:none" id="result">
-			</div>
+			<!--DIV EN EL CUAL SE DESPLIEGAN LOS RESULTADOS-->    
+                        <div id="chart_div" style="width: 900px; height: 500px;">Hola mundo</div>
+
 		</div>
 
 	</div>
-    <script src="js/jquery.js"></script>
-    <script src="js/bootstrap.js"></script>
-    <script src="bootswatch/js/bootswatch.js"></script>
-    <script src="main.js"></script>
 
 </body>
 </html>

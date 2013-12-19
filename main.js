@@ -140,13 +140,12 @@ function ejecutarSimulador(){
 //                console.log("Page Not found.");
 //            }
 //        });
-        alert("hola mundo")
 	$.ajax({
 		method:'GET',
-		url:'php/test.php',
+		url:'php/Interface.php',
 		cache: false,
                 contentType: "application/json",               
-		//data: $("#form_data").serialize(),
+		data: $("#form_data").serialize(),
 		success:function(res){
 			$('#result').empty();
 			$('#result').html(res);
@@ -159,6 +158,7 @@ function ejecutarSimulador(){
                         alert("mal");
                 }
 	});
+        return false;
 }
 //
 function drawChart(res){
