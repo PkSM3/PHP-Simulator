@@ -1,25 +1,35 @@
 <?php
+
 ini_set('display_errors', 'On');
 error_reporting(E_ALL | E_STRICT);
-
+header('Content-type: application/json');
 require_once './VariablesAleatoriasUniforme.php';
+//Seteo los valores del get (unit testing)
+$tipo_distribucion 	= isset($_REQUEST['tipo_distribucion'])?$_REQUEST['tipo_distribucion']:null;
+$iteraciones 		= isset($_REQUEST['iteraciones'])?$_REQUEST['iteraciones']:null;
+$semilla 			= isset($_REQUEST['semilla'])?$_REQUEST['semilla']:null;
+$a 					= isset($_REQUEST['a'])?$_REQUEST['a']:null;
+$b 					= isset($_REQUEST['b'])?$_REQUEST['b']:null;
+$p 					= isset($_REQUEST['p'])?$_REQUEST['p']:null;
+$teta 				= isset($_REQUEST['teta'])?$_REQUEST['teta']:null;
+$mu 				= isset($_REQUEST['mu'])?$_REQUEST['mu']:null;
+$lambda 			= isset($_REQUEST['lambda'])?$_REQUEST['lambda']:null;
 //Seteo los valores del post
-$tipo_distribucion 	= isset($_POST['tipo_distribucion'])?$_POST['tipo_distribucion']:null;
-$iteraciones 		= isset($_POST['iteraciones'])?$_POST['iteraciones']:null;
-$semilla 			= isset($_POST['semilla'])?$_POST['semilla']:rand(10e6 , 10e10);
-$a 					= isset($_POST['a'])?$_POST['a']:null;
-$b 					= isset($_POST['b'])?$_POST['b']:null;
-$p 					= isset($_POST['p'])?$_POST['p']:null;
-$teta 				= isset($_POST['teta'])?$_POST['teta']:null;
-$mu 				= isset($_POST['mu'])?$_POST['mu']:null;
-$lambda 			= isset($_POST['lambda'])?$_POST['lambda']:null;
+//$tipo_distribucion 	= isset($_POST['tipo_distribucion'])?$_POST['tipo_distribucion']:null;
+//$iteraciones 		= isset($_POST['iteraciones'])?$_POST['iteraciones']:null;
+//$semilla 			= isset($_POST['semilla'])?$_POST['semilla']:rand(10e6 , 10e10);
+//$a 					= isset($_POST['a'])?$_POST['a']:null;
+//$b 					= isset($_POST['b'])?$_POST['b']:null;
+//$p 					= isset($_POST['p'])?$_POST['p']:null;
+//$teta 				= isset($_POST['teta'])?$_POST['teta']:null;
+//$mu 				= isset($_POST['mu'])?$_POST['mu']:null;
+//$lambda 			= isset($_POST['lambda'])?$_POST['lambda']:null;
 
 //~ echo $iteraciones;
 //~ echo $semilla;
 //~ echo $lambda;
 //~ exit;
 //Inicializo mi objeto VariablesAleatoriasUniforme, el cual sigue una distribucion unifomre 0,1
-include('./VariablesAleatoriasUniforme.php');
 $va = new VariablesAleatoriasUniforme($semilla);
 
 //Variable que sera instanciada con alguno de los objetos en base al switch
@@ -28,7 +38,6 @@ $object = null;
 $result = array();
 //contador
 $i = 1;
-
 switch($tipo_distribucion){
 	case 'normal':
 		include_once('continuas/Normal.php');
@@ -75,7 +84,10 @@ switch($tipo_distribucion){
 		$object = new Exponencial($lambda, $va);
 	break;
 	default:
-		echo '<h2>Problemas al generar la distribución</h2>';
+		echo '<h2>Problemas al generar la distribución</h2><br>';
+                echo "distribucion:".$_GET['tipo_distribucion']."<br>";
+                echo "semilla:".$_GET['semilla']."<br>";
+                echo "lambda:".$_GET['lambda']."<br>";
 		exit;
 	break;
 }
@@ -83,8 +95,8 @@ $array = $object->generar($iteraciones);
 
 $finalarray=array();
 $info=array();
-array_push($info,"Dinosaur");
-array_push($info,"Length");
+array_push($info,"ID");
+array_push($info,"Valor");
 array_push($finalarray,$info);
 
 foreach($array as $key => $value){

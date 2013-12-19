@@ -60,6 +60,7 @@ function distribucion(element){
 	$('#tipo_distribucion').val(distriucion.toLowerCase());
 	$('#text_inicio').hide(200);
 	$('#form_data').show(200);
+        
 	return false;
 }
 
@@ -140,7 +141,7 @@ function ejecutarSimulador(){
 //                console.log("Page Not found.");
 //            }
 //        });
-        alert("hola mundo")
+        console.log($("#form_data").serialize());
 	$.ajax({
 		method:'POST',
 		url:'php/Interface.php',
