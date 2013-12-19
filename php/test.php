@@ -1,7 +1,7 @@
 <?php
 
-ini_set('display_errors', 'On');
-error_reporting(E_ALL | E_STRICT);
+//ini_set('display_errors', 'On');
+//error_reporting(E_ALL | E_STRICT);
 
 /*
  * To change this template, choose Tools | Templates
@@ -52,10 +52,10 @@ $va = new VariablesAleatoriasUniforme($semilla);
 //$geo = new Geometrica($p, $va);
 //$array = $geo->generar($n);
 
-include_once('./discretas/Poisson.php');
-$l=28;
-$poi = new Poisson($l, $va);
-$array = $poi->generar($n);
+//include_once('./discretas/Poisson.php');
+//$l=28;
+//$poi = new Poisson($l, $va);
+//$array = $poi->generar($n);
 
 //include_once('./discretas/Uniforme.php');
 //$a=5;
