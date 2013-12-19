@@ -148,7 +148,6 @@ function ejecutarSimulador(){
 }
 //
 function drawChart(res){
-    console.log(res);
     var data=google.visualization.arrayToDataTable(res);
     var options = {
           title: 'Valores generados',

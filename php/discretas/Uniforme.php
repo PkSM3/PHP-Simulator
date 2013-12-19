@@ -20,7 +20,7 @@ class Uniforme {
     public function generar($n){ 
         $unifD=array();
         for($i = 0; $i < $n; $i++){
-            $unifD["s".$i] = ceil($this->a + (($this->b-$this->a+1)*$this->unif01->nextUniforme()));
+            $unifD[$i] = ceil($this->a + (($this->b-$this->a+1)*$this->unif01->nextUniforme()));
         }
         return $unifD;
     }
