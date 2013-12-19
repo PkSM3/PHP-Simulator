@@ -13,7 +13,6 @@
 class Exponencial {
     //put your code here
     private $lambda;
-    private $exponencial = array();
     private $unif01;
 
     public function __construct($lambda, VariablesAleatoriasUniforme $unif01) {
@@ -22,11 +21,12 @@ class Exponencial {
     }
 
     public function generar($n){
+        $exponencial=array();
         $unif=$this->unif01->generar($n);
         for($i = 0; $i < $n; $i++){
-            $this->exponencial[$i] = -1*  $this->lambda*(log($unif[$i]));
+            $exponencial[$i] = -1*  $this->lambda*(log($unif[$i]));
         }
-        return $this->exponencial;
+        return $exponencial;
     }
 }
 
