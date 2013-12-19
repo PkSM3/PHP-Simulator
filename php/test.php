@@ -1,5 +1,5 @@
 <?php
-
+header('Content-type: application/json');
 //ini_set('display_errors', 'On');
 //error_reporting(E_ALL | E_STRICT);
 
@@ -57,13 +57,24 @@ $va = new VariablesAleatoriasUniforme($semilla);
 //$poi = new Poisson($l, $va);
 //$array = $poi->generar($n);
 
-//include_once('./discretas/Uniforme.php');
-//$a=5;
-//$b=6;
-//$ud = new Uniforme($a,$b, $va);
-//$array = $ud->generar($n);
+include_once('./discretas/Uniforme.php');
+$a=5;
+$b=6;
+$ud = new Uniforme($a,$b, $va);
+$array = $ud->generar($n);
 
-echo '<pre>';
-print_r($array);
-echo '</pre>';exit;
+$finalarray=array();
+$info=array();
+array_push($info,"Dinosaur");
+array_push($info,"Length");
+array_push($finalarray,$info);
+
+foreach($array as $key => $value){
+    $info=array();
+    array_push($info,$key);
+    array_push($info,$value);
+    array_push($finalarray,$info);
+}
+
+echo json_encode($finalarray);
 ?>

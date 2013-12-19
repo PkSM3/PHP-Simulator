@@ -21,7 +21,7 @@ class Uniforme {
         $unifC=$this->unif01->generar($n);  
         $unifD=array();
         for($i = 0; $i < $n; $i++){
-            $unifD[$i] = $this->a + (($this->b-$this->a+1)*$unifC[$i]);
+            $unifD["s".$i] = $this->a + (($this->b-$this->a+1)*$unifC[$i]);
         }
         return $unifD;
     }

@@ -1,4 +1,5 @@
 function distribucion(element){
+    console.log("en distribucion");
 	var distriucion = $(element).text();
 	switch(distriucion.toLowerCase()){
 		case 'normal':
@@ -125,16 +126,49 @@ function removeTeta(){
 }
 
 function ejecutarSimulador(){
+//    
+//       alert("laa");
+//        $.ajax({
+//            type: 'GET',
+//            url: 'php/test.php',
+//            contentType: "application/json",
+//            //dataType: 'json',
+//            success : function(data){ 
+//                console.log(data);
+//            },
+//            error: function(){ 
+//                console.log("Page Not found.");
+//            }
+//        });
 	$.ajax({
-		method:'POST',
-		url:'php/Interface.php',
+		method:'GET',
+		url:'php/test.php',
 		cache: false,
-		data: $("#form_data").serialize(),
+                contentType: "application/json",               
+		//data: $("#form_data").serialize(),
 		success:function(res){
 			$('#result').empty();
 			$('#result').html(res);
 			$('#result').show();
-		}
+                        google.load("visualization", "1", {packages:["corechart"]});
+                        google.setOnLoadCallback(drawChart(res));
+		},
+		error:function(res){
+                    
+                        alert("mal");
+                }
 	});
-	return false;
+}
+//
+function drawChart(res){
+    console.log(res);
+    var data=google.visualization.arrayToDataTable(res);
+    var options = {
+          title: 'Lengths of dinosaurs, in meters',
+          legend: { position: 'none' }
+    };
+    
+    var chart = new google.visualization.Histogram(document.getElementById('chart_div'));
+    chart.draw(data, options);
+
 }
