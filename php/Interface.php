@@ -1,7 +1,7 @@
 <?php
 
-ini_set('display_errors', 'On');
-error_reporting(E_ALL | E_STRICT);
+//ini_set('display_errors', 'On');
+//error_reporting(E_ALL | E_STRICT);
 header('Content-type: application/json');
 require_once './VariablesAleatoriasUniforme2.php';
 //Esto permite tanto post como get.
