@@ -17,12 +17,11 @@ $va = new VariablesAleatoriasUniforme($semilla);
 
 //include_once('./continuas/Exponencial.php');
 //$exps = new Exponencial(10, $va);
-//$array = $exps->generar(100);
+//$array = $exps->generar($n);
 
 //include_once('./continuas/Gamma.php');
 //$gammas = new Gamma(10, $va);
 //$array = $gammas->generar($n);
-
 
 //include_once('./continuas/Normal.php');
 //$mean=10;
@@ -36,11 +35,18 @@ $va = new VariablesAleatoriasUniforme($semilla);
 //$lg = new LogNormal($mean,$sdv, $va);
 //$array = $lg->generar($n);
 
-include_once('./continuas/Beta.php');
-$a=20.0;
-$b=10.0;
-$b = new Beta($a,$b, $va);
-$array = $b->generar($n);
+//include_once('./continuas/Beta.php');
+//$a=20.0;
+//$b=10.0;
+//$b = new Beta($a,$b, $va);
+//$array = $b->generar($n);
+
+
+//include_once('./discretas/Binomial.php');
+//$p=0.8;
+//$bin = new Binomial($p, $va);
+//$array = $bin->generar($n);
+
 
 echo '<pre>';
 print_r($array);
