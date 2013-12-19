@@ -23,11 +23,11 @@ $va = new VariablesAleatoriasUniforme($semilla);
 //$gammas = new Gamma(10, $va);
 //$array = $gammas->generar($n);
 
-include_once('./continuas/Normal.php');
-$mean=0;
-$sdv=1;
-$norms = new Normal($mean,$sdv, $va);
-$array = $norms->generar($n);
+//include_once('./continuas/Normal.php');
+//$mean=0;
+//$sdv=1;
+//$norms = new Normal($mean,$sdv, $va);
+//$array = $norms->generar($n);
 
 //include_once('./continuas/LogNormal.php');
 //$mean=10;
@@ -63,6 +63,18 @@ $array = $norms->generar($n);
 #$ud = new Uniforme($a,$b, $va);
 #$array = $ud->generar($n);
 
+
+//include_once('./continuas/Uniforme.php');
+//$a=5;
+//$b=6;
+//$ud = new Uniforme($a,$b, $va);
+//$array = $ud->generar($n);
+
+//include_once('./discretas/Uniforme.php');
+//$a=5;
+//$b=60;
+//$ud = new Uniforme($a,$b, $va);
+//$array = $ud->generar($n);
 
 //$finalarray=array();
 //$info=array();
