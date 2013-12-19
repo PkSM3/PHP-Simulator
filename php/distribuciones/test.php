@@ -8,17 +8,15 @@ error_reporting(E_ALL | E_STRICT);
  * and open the template in the editor.
  */
 
+
+$n=100;
+$semilla=rand(10e6 , 10e10);//Resultados decentes, con semilla = [10e6 , 10e10]
 include('./VariablesAleatoriasUniforme.php');
+$va = new VariablesAleatoriasUniforme($semilla);
+
 include_once('./continuas/Exponencial.php');
-
-$a = pow(7, 5);
-$m = pow(2, 31) - 1;
-$b = 0;
-echo "a: ".$a.", m: ".$m.", b: ".$b;
-$va = new VariablesAleatoriasUniforme($a, $b, $m);
-
 $uniforme = new Exponencial(10, $va);
-$array = $uniforme->generar(1000);
+$array = $uniforme->generar(100);
 echo '<pre>';
 print_r($array);
 echo '</pre>';exit;
