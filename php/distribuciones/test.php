@@ -10,6 +10,7 @@ error_reporting(E_ALL | E_STRICT);
 
 
 $n=100;
+
 $semilla=rand(10e6 , 10e10);//Resultados decentes, con semilla = [10e6 , 10e10]
 include('./VariablesAleatoriasUniforme.php');
 $va = new VariablesAleatoriasUniforme($semilla);
@@ -18,9 +19,17 @@ $va = new VariablesAleatoriasUniforme($semilla);
 //$exps = new Exponencial(10, $va);
 //$array = $exps->generar(100);
 
-include_once('./continuas/Gamma.php');
-$gammas = new Gamma(10, $va);
-$array = $gammas->generar($n);
+//include_once('./continuas/Gamma.php');
+//$gammas = new Gamma(10, $va);
+//$array = $gammas->generar($n);
+
+
+include_once('./continuas/Normal.php');
+$mean=10;
+$sdv=4;
+$norms = new Normal($mean,$sdv, $va);
+$array = $norms->generar($n);
+
 echo '<pre>';
 print_r($array);
 echo '</pre>';exit;
