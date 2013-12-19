@@ -17,6 +17,16 @@
 
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
   <script src="bootswatch/js/bsa_002.js" async="" type="text/javascript"></script>
+  
+    <script src="js/jquery.js"></script>
+    <script type="text/javascript" src = "http://www.google.com/jsapi" charset="utf-8"></script>
+    <script type="text/javascript">
+        google.load("visualization", "1", {packages:["corechart"]});
+    </script>
+    <script src="js/bootstrap.js"></script>
+    <script src="bootswatch/js/bootswatch.js"></script>
+    <script src="main.js"></script>                        
+    
 
 </head>
   <body>
@@ -97,6 +107,9 @@
                                     <input type="number" class="input-small" placeholder="desviación standard" id="sdv">
                                 </div>
                                 <br><br>
+                            </div>                            
+                            <div class="control-group">        
+                                <button onclick="ejecutarSimulador();" type="submit" class="btn">Search</button>
                             </div>
                         </form>
                         
@@ -109,17 +122,6 @@
     
 
 
-
-    <script src="js/jquery.js"></script>
-    <script type="text/javascript" src = "http://www.google.com/jsapi" charset="utf-8"></script>
-    <script type="text/javascript">
-        google.load("visualization", "1", {packages:["corechart"]});
-    </script>
-    <script src="js/bootstrap.js"></script>
-    <script src="bootswatch/js/bootswatch.js"></script>
-    <script src="main.js"></script>                        
-    
-    <div onclick="ejecutarSimulador();">Iniciar</div>
     <div id="chart_div" style="width: 900px; height: 500px;">Hola mundo</div>
 
 </body></html>

@@ -140,18 +140,20 @@ function ejecutarSimulador(){
 //                console.log("Page Not found.");
 //            }
 //        });
+        alert("hola mundo")
 	$.ajax({
-		method:'GET',
-		url:'php/test.php',
+		method:'POST',
+		url:'php/Interface.php',
 		cache: false,
                 contentType: "application/json",               
-		//data: $("#form_data").serialize(),
+		data: $("#form_data").serialize(),
 		success:function(res){
 			$('#result').empty();
 			$('#result').html(res);
 			$('#result').show();
-                        google.load("visualization", "1", {packages:["corechart"]});
-                        google.setOnLoadCallback(drawChart(res));
+                        alert("bien");
+//                        google.load("visualization", "1", {packages:["corechart"]});
+//                        google.setOnLoadCallback(drawChart(res));
 		},
 		error:function(res){
                     
