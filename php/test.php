@@ -19,9 +19,9 @@ $va = new VariablesAleatoriasUniforme($semilla);
 //$exps = new Exponencial(10, $va);
 //$array = $exps->generar($n);
 
-//include_once('./continuas/Gamma.php');
-//$gammas = new Gamma(10, $va);
-//$array = $gammas->generar($n);
+include_once('./continuas/Gamma.php');
+$gammas = new Gamma(10, $va);
+$array = $gammas->generar($n);
 
 //include_once('./continuas/Normal.php');
 //$mean=0;

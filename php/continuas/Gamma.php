@@ -42,7 +42,7 @@ class Gamma {
         $gamma=array();
         $unif=$this->unif01->generar($n);//
         for($i = 0; $i < $n; $i++){
-            $gamma[$i] = $this->gen1($unif[$i]);
+            $gamma[$i] = $this->gen1($this->unif01->nextUniforme());
         }
         return $gamma;
     }
