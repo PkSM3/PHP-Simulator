@@ -47,10 +47,21 @@ $va = new VariablesAleatoriasUniforme($semilla);
 //$bin = new Binomial($p, $va);
 //$array = $bin->generar($n);
 
-include_once('./discretas/Geometrica.php');
-$p=0.9;
-$geo = new Geometrica($p, $va);
-$array = $geo->generar($n);
+//include_once('./discretas/Geometrica.php');
+//$p=0.9;
+//$geo = new Geometrica($p, $va);
+//$array = $geo->generar($n);
+
+//include_once('./discretas/Poisson.php');
+//$l=28;
+//$poi = new Poisson($l, $va);
+//$array = $poi->generar($n);
+
+include_once('./discretas/Uniforme.php');
+$a=5;
+$b=6;
+$ud = new Uniforme($a,$b, $va);
+$array = $ud->generar($n);
 
 echo '<pre>';
 print_r($array);

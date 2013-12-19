@@ -6,22 +6,24 @@
  */
 
 class Uniforme {
-    private $n;
-    private $m;
-    private $va;
-    private $uniformes = array();
 
-    function __construct($n, $m, VariablesAleatoriasUniforme $va) {
-        $this->n = $n;
-        $this->m = $m;
-        $this->va = $va;
+    private $a;
+    private $b;
+    private $unif01;
+
+    public function __construct($a,$b, VariablesAleatoriasUniforme $unif01) {
+        $this->a = $a;
+        $this->b = $b;
+        $this->unif01 = $unif01;
     }
 
-    function generar($n){
+    public function generar($n){
+        $unifC=$this->unif01->generar($n);  
+        $unifD=array();
         for($i = 0; $i < $n; $i++){
-            $this->uniformes[$i] = $this->m + (($this->n-$this->m+1)*$this->va->nextUniforme());
+            $unifD[$i] = $this->a + (($this->b-$this->a+1)*$unifC[$i]);
         }
-        return $this->uniformes;
+        return $unifD;
     }
 }
 
