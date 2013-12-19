@@ -11,8 +11,8 @@ header('Content-type: application/json');
 
 $n=100;
 
-$semilla=rand(10e6 , 10e10);//Resultados decentes, con semilla = [10e6 , 10e10]
-include('./VariablesAleatoriasUniforme.php');
+$semilla=rand();//rand(10e6 , 10e10);//Resultados decentes, con semilla = [10e6 , 10e10]
+include('./VariablesAleatoriasUniforme2.php');
 $va = new VariablesAleatoriasUniforme($semilla);
 
 //include_once('./continuas/Exponencial.php');
@@ -23,11 +23,11 @@ $va = new VariablesAleatoriasUniforme($semilla);
 //$gammas = new Gamma(10, $va);
 //$array = $gammas->generar($n);
 
-//include_once('./continuas/Normal.php');
-//$mean=10;
-//$sdv=4;
-//$norms = new Normal($mean,$sdv, $va);
-//$array = $norms->generar($n);
+include_once('./continuas/Normal.php');
+$mean=0;
+$sdv=1;
+$norms = new Normal($mean,$sdv, $va);
+$array = $norms->generar($n);
 
 //include_once('./continuas/LogNormal.php');
 //$mean=10;
@@ -57,24 +57,27 @@ $va = new VariablesAleatoriasUniforme($semilla);
 //$poi = new Poisson($l, $va);
 //$array = $poi->generar($n);
 
-include_once('./discretas/Uniforme.php');
-$a=5;
-$b=6;
-$ud = new Uniforme($a,$b, $va);
-$array = $ud->generar($n);
+#include_once('./discretas/Uniforme.php');
+#$a=5;
+#$b=6;
+#$ud = new Uniforme($a,$b, $va);
+#$array = $ud->generar($n);
 
-$finalarray=array();
-$info=array();
-array_push($info,"Dinosaur");
-array_push($info,"Length");
-array_push($finalarray,$info);
 
-foreach($array as $key => $value){
-    $info=array();
-    array_push($info,$key);
-    array_push($info,$value);
-    array_push($finalarray,$info);
-}
+//$finalarray=array();
+//$info=array();
+//array_push($info,"Dinosaur");
+//array_push($info,"Length");
+//array_push($finalarray,$info);
+//
+//foreach($array as $key => $value){
+//    $info=array();
+//    array_push($info,"s".$key);
+//    array_push($info,$value);
+//    array_push($finalarray,$info);
+//}
+//
+//echo json_encode($finalarray);
 
-echo json_encode($finalarray);
+echo print_r($array);
 ?>

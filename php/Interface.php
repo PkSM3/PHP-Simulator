@@ -3,11 +3,11 @@
 ini_set('display_errors', 'On');
 error_reporting(E_ALL | E_STRICT);
 header('Content-type: application/json');
-require_once './VariablesAleatoriasUniforme.php';
+require_once './VariablesAleatoriasUniforme2.php';
 //Seteo los valores del get (unit testing)
 $tipo_distribucion 	= isset($_REQUEST['tipo_distribucion'])?$_REQUEST['tipo_distribucion']:null;
 $iteraciones 		= isset($_REQUEST['iteraciones'])?$_REQUEST['iteraciones']:null;
-$semilla 			= isset($_REQUEST['semilla'])?$_REQUEST['semilla']:null;
+$semilla 			= isset($_REQUEST['semilla'])?$_REQUEST['semilla']:rand(10e6 , 10e10);
 $a 					= isset($_REQUEST['a'])?$_REQUEST['a']:null;
 $b 					= isset($_REQUEST['b'])?$_REQUEST['b']:null;
 $p 					= isset($_REQUEST['p'])?$_REQUEST['p']:null;
@@ -63,9 +63,9 @@ switch($tipo_distribucion){
 		include_once('continuas/Gamma.php');
 		$object = new Gamma($lambda, $va);
 	break;
-	case 'bernoulli':
+	case 'binomial':
 		include_once('discretas/Binomial.php');
-		$object = new Bernoulli($p, $va);
+		$object = new Binomial($p, $va);
 	break;
 	case 'geométrica':
 		include_once('discretas/Geometrica.php');

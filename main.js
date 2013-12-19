@@ -60,7 +60,6 @@ function distribucion(element){
 	$('#tipo_distribucion').val(distriucion.toLowerCase());
 	$('#text_inicio').hide(200);
 	$('#form_data').show(200);
-        
 	return false;
 }
 
@@ -141,20 +140,19 @@ function ejecutarSimulador(){
 //                console.log("Page Not found.");
 //            }
 //        });
-        console.log($("#form_data").serialize());
+        alert("hola mundo")
 	$.ajax({
-		method:'POST',
-		url:'php/Interface.php',
+		method:'GET',
+		url:'php/test.php',
 		cache: false,
                 contentType: "application/json",               
-		data: $("#form_data").serialize(),
+		//data: $("#form_data").serialize(),
 		success:function(res){
 			$('#result').empty();
 			$('#result').html(res);
 			$('#result').show();
-                        alert("bien");
-//                        google.load("visualization", "1", {packages:["corechart"]});
-//                        google.setOnLoadCallback(drawChart(res));
+                        google.load("visualization", "1", {packages:["corechart"]});
+                        google.setOnLoadCallback(drawChart(res));
 		},
 		error:function(res){
                     
