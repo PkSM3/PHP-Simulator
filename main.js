@@ -126,20 +126,7 @@ function removeTeta(){
 }
 
 function ejecutarSimulador(){
-//    
-//       alert("laa");
-//        $.ajax({
-//            type: 'GET',
-//            url: 'php/test.php',
-//            contentType: "application/json",
-//            //dataType: 'json',
-//            success : function(data){ 
-//                console.log(data);
-//            },
-//            error: function(){ 
-//                console.log("Page Not found.");
-//            }
-//        });
+        $('#chart_div').html("<img src='img/ajax-loader.gif' />");
 	$.ajax({
 		method:'GET',
 		url:'php/Interface.php',
@@ -153,8 +140,7 @@ function ejecutarSimulador(){
                         google.load("visualization", "1", {packages:["corechart"]});
                         google.setOnLoadCallback(drawChart(res));
 		},
-		error:function(res){
-                    
+		error:function(res){                    
                         alert("mal");
                 }
 	});
@@ -165,7 +151,7 @@ function drawChart(res){
     console.log(res);
     var data=google.visualization.arrayToDataTable(res);
     var options = {
-          title: 'Lengths of dinosaurs, in meters',
+          title: 'Valores generados',
           legend: { position: 'none' }
     };
     
