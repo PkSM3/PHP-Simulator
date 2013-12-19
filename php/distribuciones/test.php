@@ -52,16 +52,16 @@ $va = new VariablesAleatoriasUniforme($semilla);
 //$geo = new Geometrica($p, $va);
 //$array = $geo->generar($n);
 
-//include_once('./discretas/Poisson.php');
-//$l=28;
-//$poi = new Poisson($l, $va);
-//$array = $poi->generar($n);
+include_once('./discretas/Poisson.php');
+$l=28;
+$poi = new Poisson($l, $va);
+$array = $poi->generar($n);
 
-include_once('./discretas/Uniforme.php');
-$a=5;
-$b=6;
-$ud = new Uniforme($a,$b, $va);
-$array = $ud->generar($n);
+//include_once('./discretas/Uniforme.php');
+//$a=5;
+//$b=6;
+//$ud = new Uniforme($a,$b, $va);
+//$array = $ud->generar($n);
 
 echo '<pre>';
 print_r($array);
