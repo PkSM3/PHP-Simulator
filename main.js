@@ -33,6 +33,9 @@ function distribucion(element){
 			showB();
 		break;
 		case 'bernoulli':
+                    alert("en construccion");
+                break;
+		case 'binomial':
 		case 'geométrica':
 			removeA();
 			removeB();
@@ -41,9 +44,6 @@ function distribucion(element){
 			removeMu();
 
 			showP();
-		break;
-		case 'binomial':
-			alert('en construccion');
 		break;
 		case 'poisson':
 		case 'exponencial':
