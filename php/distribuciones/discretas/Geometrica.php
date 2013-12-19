@@ -14,17 +14,19 @@ class Geometrica {
     //put your code here
     private $p;
     private $geometrica = array();
-    private $va;
+    private $unif01;
 
-    function __construct($p, VariablesAleatoriasUniforme $va) {
+    function __construct($p, VariablesAleatoriasUniforme $unif01) {
         $this->p = $p;
-        $this->va = $va;
+        $this->unif01 = $unif01;
     }
 
     function generar($n){
-        $restaP = 1- $this->p;
+        $unif=$this->unif01->generar($n);
+        //$restaP = 1- $this->p;
         for($i = 0; $i < $n; $i++){
-            $this->geometrica[$i] = log($this->va->nextUniforme())/log($restaP);
+            //$this->geometrica[$i] = log($this->unif01->nextUniforme())/log($restaP);
+            $this->geometrica[$i] = ceil(log($unif[$i]) / log(1.0 - $this->p));
         }
         return $this->geometrica;
     }

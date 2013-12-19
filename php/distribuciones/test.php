@@ -47,6 +47,10 @@ $va = new VariablesAleatoriasUniforme($semilla);
 //$bin = new Binomial($p, $va);
 //$array = $bin->generar($n);
 
+include_once('./discretas/Geometrica.php');
+$p=0.9;
+$geo = new Geometrica($p, $va);
+$array = $geo->generar($n);
 
 echo '<pre>';
 print_r($array);
