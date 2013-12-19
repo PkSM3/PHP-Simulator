@@ -30,11 +30,17 @@ $va = new VariablesAleatoriasUniforme($semilla);
 //$norms = new Normal($mean,$sdv, $va);
 //$array = $norms->generar($n);
 
-include_once('./continuas/LogNormal.php');
-$mean=10;
-$sdv=4;
-$lg = new LogNormal($mean,$sdv, $va);
-$array = $lg->generar($n);
+//include_once('./continuas/LogNormal.php');
+//$mean=10;
+//$sdv=4;
+//$lg = new LogNormal($mean,$sdv, $va);
+//$array = $lg->generar($n);
+
+include_once('./continuas/Beta.php');
+$a=20.0;
+$b=10.0;
+$b = new Beta($a,$b, $va);
+$array = $b->generar($n);
 
 echo '<pre>';
 print_r($array);

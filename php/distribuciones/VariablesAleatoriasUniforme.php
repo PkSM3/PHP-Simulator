@@ -41,6 +41,10 @@ class VariablesAleatoriasUniforme{
 		return $this->semilla;
 	}
         
+    public function setSemilla($s){
+		$this->semilla=$s;
+	}
+        
         
     public function generar($n){
         $x = $this->semilla;

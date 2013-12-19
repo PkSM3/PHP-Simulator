@@ -10,25 +10,6 @@
  *
  * @author jaime
  */
-//
-//$seed=rand();
-//include_once("../../UniformC.php");
-//$unif01 = new UniformC();
-//$s = $unif01->go($seed);
-
-
-//$a = pow(7, 5);
-//$m = pow(2, 31) - 1;
-//$b = 0;
-//
-//$seed=rand();
-//include('../VariablesAleatoriasUniforme.php');
-//$va = new VariablesAleatoriasUniforme($a, $b, $m,$seed);
-//$s=$va->nextUniforme(rand());
-//$la=10;
-//$g=new Gamma($la,$s);
-//echo $g->gen1();
-
 
 class Gamma {
     //put your code here
@@ -53,7 +34,7 @@ class Gamma {
                 1.208650973866179e-3 / ($x + 5) + 
                 -5.395239384953e-6 / ($x + 6));
         
-        return $ret * sqrt(2*pi())/$x * pow($x + 5.5, $x+.5) * exp(-1*$x-5.5);
+        return abs($ret * sqrt(2*pi())/$x * pow($x + 5.5, $x+.5) * exp(-1*$x-5.5));
     }
     
     public function generar($n){

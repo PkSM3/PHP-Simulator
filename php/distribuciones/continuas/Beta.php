@@ -25,14 +25,21 @@ class Beta {
     }
 
     public function generar($n){
-        $gamma = new Gamma(1.0, $this->a, $this->va);
+        
+        $gamma = new Gamma($this->a, $this->va);
         $distribucionGamma1 = $gamma->generar($n);
-        $gamma->setB($this->b);
+        
+        $s=$this->va->getSemilla();        
+        $s=abs($s/$distribucionGamma1[0]);        
+        $this->va->setSemilla($s);
+        $gamma = new Gamma($this->b, $this->va);        
         $distribucionGamma2 = $gamma->generar($n);
+        
+        $beta=array();
         for($i = 0; $i < $n; $i++){
-            $this->beta[$i] = $distribucionGamma1[$i]/($distribucionGamma1[$i] + $distribucionGamma2[$i]);
+            $beta[$i] = $distribucionGamma1[$i]/($distribucionGamma1[$i] + $distribucionGamma2[$i]);
         }
-        return this.getBeta();
+        return $beta;
     }
 }
 
