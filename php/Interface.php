@@ -81,26 +81,53 @@ switch($tipo_distribucion){
 		exit;
 	break;
 }
+
+        $tiempo_inicio = microtime_float();
+//=========================================//
 $array = $object->generar($iteraciones);
 
-$finalarray=array();
+$dataArray=array();
 $info=array();
 array_push($info,"ID");
 array_push($info,"Valor");
-array_push($finalarray,$info);
+array_push($dataArray,$info);
 
 foreach($array as $key => $value){
     $info=array();
     array_push($info,"s".$key);
     array_push($info,$value);
-    array_push($finalarray,$info);
+    array_push($dataArray,$info);
 }
+//=========================================//
+        $tiempo_fin = microtime_float();
+
+$tiempo = $tiempo_fin - $tiempo_inicio;
+
+$finalArray=array();
+$finalArray["data"]=$dataArray;
+$finalArray["inicioRecupJSON"]=udate('H:i:s.u');
+$finalArray["time"]=$tiempo;
+
 
 if(isset($_GET['callback'])){ // Si es una petición cross-domain
-   echo $_GET['callback'].'('.json_encode($finalarray).')';
+   echo $_GET['callback'].'('.json_encode($finalArray).')';
 }
-else echo json_encode($finalarray);
+else echo json_encode($finalArray);
 
 
 
+function microtime_float() {
+    list($useg, $seg) = explode(" ", microtime());
+    return ((float)$useg + (float)$seg);
+}
+
+function udate($format, $utimestamp = null) {
+    if (is_null($utimestamp))
+        $utimestamp = microtime(true);
+
+    $timestamp = floor($utimestamp);
+    $milliseconds = round(($utimestamp - $timestamp) * 1000000);
+
+    return date(preg_replace('`(?<!\\\\)u`', $milliseconds, $format), $timestamp);
+}
 ?>

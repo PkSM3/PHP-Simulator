@@ -127,6 +127,7 @@ function removeTeta(){
 
 function ejecutarSimulador(){
         $('#chart_div').html("<img src='img/ajax-loader.gif' />");
+        console.log(getClientTime()+": Inicio de generador de VAs");
 	$.ajax({
 		method:'GET',
 		url:'php/Interface.php',
@@ -135,16 +136,37 @@ function ejecutarSimulador(){
 		data: $("#form_data").serialize(),
 		success:function(res){
 			$('#result').empty();
-			$('#result').html(res);
+			$('#result').html(res["data"]);
 			$('#result').show();
+                        console.log(res["time"]+" [s]: Tiempo que demora servidor en generar las VAs");
+                        console.log(res["inicioRecupJSON"]+": Cliente comienza a recuperar JSON del servidor");                        
+                        console.log(getClientTime()+": Cliente recupera JSON del servidor");
                         google.load("visualization", "1", {packages:["corechart"]});
-                        google.setOnLoadCallback(drawChart(res));
+                        google.setOnLoadCallback(drawChart(res["data"]));                     
+                        console.log(getClientTime()+": Cliente termina de dibujar histograma de GChart");
 		},
 		error:function(res){                    
                         alert("mal");
                 }
 	});
         return false;
+}
+
+function getClientTime(){
+    var totalSec = new Date().getTime() / 1000;
+    var d = new Date();
+    var hours = d.getHours(); 
+    var minutes = parseInt( totalSec / 60 ) % 60;
+    var seconds = totalSec % 60;
+
+
+
+    var result = (hours < 10 ? "0" + hours : hours) + "-" + (minutes < 10 ? "0" + minutes : minutes) + "-" + (seconds  < 10 ? "0" + seconds : seconds);
+    return result;
+}
+
+function pr(msg){
+    console.log(msg);
 }
 //
 function drawChart(res){
