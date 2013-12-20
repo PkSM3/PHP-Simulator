@@ -126,8 +126,10 @@ function removeTeta(){
 }
 
 function ejecutarSimulador(){
+        $('#histo').show();
         $('#chart_div').html("<img src='img/ajax-loader.gif' />");
-        console.log(getClientTime()+": Inicio de generador de VAs");
+        logTiempos="<ul><h3>";
+        logTiempos+="<li>"+getClientTime()+": Inicio de generador de VAs"+"</li>";
 	$.ajax({
 		method:'GET',
 		url:'php/Interface.php',
@@ -136,14 +138,19 @@ function ejecutarSimulador(){
 		data: $("#form_data").serialize(),
 		success:function(res){
 			$('#result').empty();
-			$('#result').html(res["data"]);
-			$('#result').show();
-                        console.log(res["time"]+" [s]: Tiempo que demora servidor en generar las VAs");
-                        console.log(res["inicioRecupJSON"]+": Cliente comienza a recuperar JSON del servidor");                        
-                        console.log(getClientTime()+": Cliente recupera JSON del servidor");
+			//$('#result').html(res["data"]);
+			//$('#result').show();
+                        logTiempos+="<li>"+res["time"]+" [s]: Tiempo que demora servidor en generar las VAs"+"</li>";
+                        logTiempos+="<li>"+res["inicioRecupJSON"]+": Cliente comienza a recuperar JSON del servidor"+"</li>";
+                        logTiempos+="<li>"+getClientTime()+": Cliente recupera JSON del servidor"+"</li>";
+                        
                         google.load("visualization", "1", {packages:["corechart"]});
-                        google.setOnLoadCallback(drawChart(res["data"]));                     
-                        console.log(getClientTime()+": Cliente termina de dibujar histograma de GChart");
+                        google.setOnLoadCallback(drawChart(res["data"]));       
+                        
+                        logTiempos+="<li>"+getClientTime()+": Cliente termina de dibujar histograma con GChart"+"</li>";
+                        logTiempos+="</h3></ul";                        
+			$('#result').html(logTiempos);
+			$('#result').show();
 		},
 		error:function(res){                    
                         alert("mal");
@@ -158,10 +165,7 @@ function getClientTime(){
     var hours = d.getHours(); 
     var minutes = parseInt( totalSec / 60 ) % 60;
     var seconds = totalSec % 60;
-
-
-
-    var result = (hours < 10 ? "0" + hours : hours) + "-" + (minutes < 10 ? "0" + minutes : minutes) + "-" + (seconds  < 10 ? "0" + seconds : seconds);
+    var result = (hours < 10 ? "0" + hours : hours) + ":" + (minutes < 10 ? "0" + minutes : minutes) + ":" + (seconds  < 10 ? "0" + seconds : seconds);
     return result;
 }
 

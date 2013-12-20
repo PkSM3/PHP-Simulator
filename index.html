@@ -25,8 +25,8 @@
     <script src="main.js"></script>
 </head>
 
-<body>
-    <div class="navbar navbar-default navbar-fixed-top">
+<body onload="$('#histo').hide();">
+            <div class="navbar navbar-default navbar-fixed-top">
 		<div class="container">
 			<div class="navbar-header">
 				<a href="#" class="navbar-brand">DISTRIBUCIONES</a>
@@ -115,16 +115,24 @@
 				</div>
 			</div>
 			<!--row-->
-
-			<!--DIV EN EL CUAL SE DESPLIEGAN LOS RESULTADOS-->    
-                        <div id="chart_div" style="width: 900px; height: 500px;"></div>
-			<!--DIV EN EL CUAL SE DESPLIEGAN LOS RESULTADOS-->
-			<div class="row" style="display:none" id="result">
-			</div>
-
-		</div>
+                        
 
 	</div>
+                
+        <div id="histo" class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="navbar navbar-default">
+                        <div style="padding:30px;">
+                            
+                            <div id="chart_div" style="width: 900px; height: 500px;"></div>
+                            <div class="row"  id="result"> </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 </body>
 </html>
