@@ -1,3 +1,5 @@
+var limitN=10000;
+
 function distribucion(element){
     console.log("en distribucion");
 	var distriucion = $(element).text();
@@ -198,9 +200,12 @@ function pr(msg){
 //
 function drawChart(res){
     var data=google.visualization.arrayToDataTable(res);
+    iteraciones=document.getElementById("iteraciones").value;
+    bool=(iteraciones>limitN)?false:true;
     var options = {
           title: 'Valores generados',
-          legend: { position: 'none' }
+          legend: { position: 'none' },
+          enableInteractivity: bool
     };
 
     var chart = new google.visualization.Histogram(document.getElementById('chart_div'));
