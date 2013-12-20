@@ -23,7 +23,7 @@ class Exponencial {
     public function generar($n){
         $exponencial=array();
         for($i = 0; $i < $n; $i++){
-            $exponencial[$i] = -1*  $this->lambda*(log($this->unif01->nextUniforme()));
+            $exponencial[$i] = -1.0*  $this->lambda*(log($this->unif01->nextUniforme()));
         }
         return $exponencial;
     }

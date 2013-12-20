@@ -11,6 +11,7 @@ $semilla 			= isset($_REQUEST['semilla'])?$_REQUEST['semilla']:rand();
 $a 					= isset($_REQUEST['a'])?$_REQUEST['a']:null;
 $b 					= isset($_REQUEST['b'])?$_REQUEST['b']:null;
 $p 					= isset($_REQUEST['p'])?$_REQUEST['p']:null;
+$n 					= isset($_REQUEST['n'])?$_REQUEST['n']:null;
 $teta 				= isset($_REQUEST['teta'])?$_REQUEST['teta']:null;
 $mu 				= isset($_REQUEST['mu'])?$_REQUEST['mu']:null;
 $lambda 			= isset($_REQUEST['lambda'])?$_REQUEST['lambda']:null;
@@ -51,20 +52,21 @@ switch($tipo_distribucion){
 	break;
 	case 'gamma':
 		include_once('continuas/Gamma.php');
-		$object = new Gamma($lambda, $va);
+		$object = new Gamma($lambda, $b, $va);
+		//~ $object = new Gamma($lambda, $va);
 	break;
-	case 'binomial':
-		include_once('discretas/Binomial.php');
-		$object = new Binomial($p, $va);
+	case 'bernoulli':
+		include_once('discretas/Bernoulli.php');
+		$object = new Bernoulli($p, $va);
 	break;
 	case 'geométrica':
 		include_once('discretas/Geometrica.php');
 		$object = new Geometrica($p, $va);
 	break;
-	//~ case 'binomial':
-		//~ include_once('./discretas/Binomial.php');
-		//~ $object = new Binomial();
-	//~ break;
+	case 'binomial':
+		include_once('discretas/Binomial.php');
+		$object = new Binomial($p, $n, $va);
+	break;
 	case 'poisson':
 		include_once('discretas/Poisson.php');
 		$object = new Poisson($lambda, $va);

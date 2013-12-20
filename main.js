@@ -8,6 +8,7 @@ function distribucion(element){
 			removeB();
 			removeLambda();
 			removeP();
+			removeN();
 
 			showMu();
 			showTeta();
@@ -19,6 +20,7 @@ function distribucion(element){
 			removeP();
 			removeTeta();
 			removeMu();
+			removeN();
 
 			showA();
 			showB();
@@ -28,20 +30,29 @@ function distribucion(element){
 			removeP();
 			removeTeta();
 			removeMu();
+			removeN();
 
 			showLambda();
 			showB();
 		break;
-		case 'bernoulli':
-                    alert("en construccion");
-                break;
 		case 'binomial':
+			removeA();
+			removeB();
+			removeLambda();
+			removeTeta();
+			removeMu();
+
+			showN();
+			showP();
+		break;
+		case 'bernoulli':
 		case 'geométrica':
 			removeA();
 			removeB();
 			removeLambda();
 			removeTeta();
 			removeMu();
+			removeN();
 
 			showP();
 		break;
@@ -52,6 +63,7 @@ function distribucion(element){
 			removeP();
 			removeTeta();
 			removeMu();
+			removeN();
 
 			showLambda();
 		break;
@@ -93,7 +105,16 @@ function showTeta(){
 	$("#teta").show();
 }
 
+function showN(){
+	$("#n_label").show();
+	$("#n").show();
+}
 
+
+function removeN(){
+	$("#n_label").hide();
+	$("#n").hide();
+}
 
 function removeA(){
 	$("#a_label").hide();
@@ -126,7 +147,7 @@ function removeTeta(){
 }
 
 function ejecutarSimulador(){
-    
+
         $('#result').hide();
         $('#histo').show();
         $('#chart_div').html("<img src='img/ajax-loader.gif' />");
@@ -136,7 +157,7 @@ function ejecutarSimulador(){
 		method:'GET',
 		url:'php/Interface.php',
 		cache: false,
-                contentType: "application/json",               
+                contentType: "application/json",
 		data: $("#form_data").serialize(),
 		success:function(res){
 			$('#result').empty();
@@ -145,16 +166,16 @@ function ejecutarSimulador(){
                         logTiempos+="<li>"+res["time"]+" [s]: Tiempo que demora servidor en generar las VAs"+"</li>";
                         logTiempos+="<li>"+res["inicioRecupJSON"]+": Cliente comienza a recuperar JSON del servidor"+"</li>";
                         logTiempos+="<li>"+getClientTime()+": Cliente recupera JSON del servidor"+"</li>";
-                        
+
                         google.load("visualization", "1", {packages:["corechart"]});
-                        google.setOnLoadCallback(drawChart(res["data"]));       
-                        
+                        google.setOnLoadCallback(drawChart(res["data"]));
+
                         logTiempos+="<li>"+getClientTime()+": Cliente termina de dibujar histograma con GChart"+"</li>";
-                        logTiempos+="</h3></ul";                        
+                        logTiempos+="</h3></ul";
 			$('#result').html(logTiempos);
 			$('#result').show();
 		},
-		error:function(res){                    
+		error:function(res){
                         alert("mal");
                 }
 	});
@@ -164,7 +185,7 @@ function ejecutarSimulador(){
 function getClientTime(){
     var totalSec = new Date().getTime() / 1000;
     var d = new Date();
-    var hours = d.getHours(); 
+    var hours = d.getHours();
     var minutes = parseInt( totalSec / 60 ) % 60;
     var seconds = totalSec % 60;
     var result = (hours < 10 ? "0" + hours : hours) + ":" + (minutes < 10 ? "0" + minutes : minutes) + ":" + (seconds  < 10 ? "0" + seconds : seconds);
@@ -181,7 +202,7 @@ function drawChart(res){
           title: 'Valores generados',
           legend: { position: 'none' }
     };
-    
+
     var chart = new google.visualization.Histogram(document.getElementById('chart_div'));
     chart.draw(data, options);
 

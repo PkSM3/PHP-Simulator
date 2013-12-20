@@ -24,7 +24,8 @@ class Geometrica {
     function generar($n){
         //$restaP = 1- $this->p;
         for($i = 0; $i < $n; $i++){
-            $this->geometrica[$i] = ceil(log($this->unif01->nextUniforme()) / log(1.0 - $this->p));
+            $this->geometrica[$i] = log($this->unif01->nextUniforme()) / log(1.0 - $this->p);
+            //~ $this->geometrica[$i] = round(log($this->unif01->nextUniforme()) / log(1.0 - $this->p), 0, PHP_ROUND_HALF_DOWN);
         }
         return $this->geometrica;
     }

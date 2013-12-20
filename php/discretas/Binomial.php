@@ -13,17 +13,24 @@
 class Binomial {
     //put your code here
     private $p;
+    private $n;
     private $binomial = array();
     private $unif01;
 
-    function __construct($p, VariablesAleatoriasUniforme $unif01) {
+    function __construct($p, $n, VariablesAleatoriasUniforme $unif01) {
+        $this->n = $n;
         $this->p = $p;
         $this->unif01 = $unif01;
     }
 
-    function generar($n){
-        for($i = 0; $i < $n; $i++){
-            $this->binomial[$i] = ($this->unif01->nextUniforme() <= $this->p)?1:0;
+    function generar($m){
+        for($j = 0; $j < $m; $j++){
+			$x = 0;
+			for($i = 0; $i < $this->n; $i++) {
+				if($this->unif01->nextUniforme() < $this->p)
+					$x++;
+			}
+			$this->binomial[$j] = $x;
         }
         return $this->binomial;
     }
