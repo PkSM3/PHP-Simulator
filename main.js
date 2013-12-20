@@ -126,6 +126,8 @@ function removeTeta(){
 }
 
 function ejecutarSimulador(){
+    
+        $('#result').hide();
         $('#histo').show();
         $('#chart_div').html("<img src='img/ajax-loader.gif' />");
         logTiempos="<ul><h3>";
